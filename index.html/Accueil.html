@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sterling Growth - Accueil</title>
+    <link rel="stylesheet" href="https://cloudflare.com">
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #1a1a2e;
+            color: #ffffff;
+            margin: 0;
+            padding: 0;
+            overflow-x: hidden;
+        }
+
+        /* 🗺️ NAVBAR TOP-RIGHT LAYOUT STRUCTURING */
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 50px;
+            background-color: #162447;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+        }
+        .logo img {
+            height: 50px;
+            width: auto;
+            object-fit: contain;
+        }
+        .right-menu-container {
+            display: flex;
+            align-items: center;
+            gap: 35px;
+        }
+        .nav-links {
+            list-style: none;
+            display: flex;
+            flex-direction: row;
+            margin: 0;
+            padding: 0;
+            gap: 25px;
+        }
+        .nav-links a {
+            text-decoration: none;
+            white-space: nowrap;
+        }
+        /* 🎨 DISTINCT NAVBAR LINK COLORS */
+        .nav-links li:nth-child(1) a { color: #4ecca3; font-weight: bold; } /* Accueil - Mint Green */
+        .nav-links li:nth-child(2) a { color: #ffb423; font-weight: bold; } /* Niveau - Gold/Yellow */
+        .nav-links li:nth-child(3) a { color: #a29bfe; font-weight: bold; } /* À propos - Soft Purple */
+        .nav-links li:nth-child(4) a { color: #00adb5; font-weight: bold; } /* Contact - Vibrant Cyan */
+
+        .nav-links a:hover {
+            filter: brightness(1.3);
+        }
+
+        /* AUTH BUTTONS */
+        .nav-buttons {
+            display: flex;
+            flex-direction: row;
+            gap: 15px;
+        }
+        .login {
+            color: #ffffff;
+            border: 2px solid #e43f5a;
+            padding: 8px 18px;
+            border-radius: 5px;
+            text-decoration: none;
+            font-weight: bold;
+        }
+        .register {
+            background-color: #e43f5a;
+            color: #ffffff;
+            padding: 10px 20px;
+            border-radius: 5px;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        /* 🚀 HERO SECTION STRUCTURE */
+        .hero-container {
+            display: flex;
+            min-height: calc(100vh - 80px);
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 40px;
+            box-sizing: border-box;
+            align-items: center;
+        }
+        .hero-left, .hero-right {
+            flex: 1;
+            width: 50%;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            padding: 20px;
+            box-sizing: border-box;
+        }
+        .hero-left {
+            text-align: left;
+        }
+        .hero-left h1 {
+            font-size: 3.5rem;
+            color: #4ecca3;
+            margin: 0 0 20px 0;
+            line-height: 1.2;
+        }
+        .hero-left p {
+            font-size: 1.2rem;
+            color: #bbb;
+            line-height: 1.6;
+            margin: 0 0 30px 0;
+        }
+        .hero-right {
+            align-items: center;
+        }
+        .hero-right img {
+            max-width: 320px;
+            width: 100%;
+            height: auto;
+            animation: floatingLogo 3.5s ease-in-out infinite;
+        }
+
+        /* CTA BUTTON */
+        .btn-cta {
+            background-color: #e43f5a;
+            color: #ffffff;
+            padding: 15px 35px;
+            font-size: 1.2rem;
+            font-weight: bold;
+            border-radius: 8px;
+            text-decoration: none;
+            display: inline-block;
+            align-self: flex-start;
+            box-shadow: 0 5px 15px rgba(228,63,90,0.4);
+            transition: transform 0.2s;
+        }
+        .btn-cta:hover {
+            transform: scale(1.05);
+        }
+
+        @keyframes floatingLogo {
+            0% { transform: translateY(0px); }
+            50% { transform: translateY(-15px); }
+            100% { transform: translateY(0px); }
+        }
+
+        /* RESPONSIVE */
+        @media (max-width: 768px) {
+            .navbar { flex-direction: column; gap: 15px; padding: 15px; }
+            .right-menu-container { flex-direction: column; gap: 15px; }
+            .hero-container { flex-direction: column; text-align: center; padding: 40px 20px; }
+            .hero-left, .hero-right { width: 100%; text-align: center; }
+            .btn-cta { align-self: center; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- 🗺️ RECONFIGURED TOP NAVBAR -->
+    <header>
+        <nav class="navbar">
+            <div class="logo">
+                <img src="logo.png" alt="Sterling Growth">
+            </div>
+            
+            <div class="right-menu-container">
+                <ul class="nav-links">
+                    <li><a href="accueil.html">Accueil</a></li>
+                    <li><a href="level.html">Niveau</a></li>
+                    <li><a href="about.html">À propos</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+                <div class="nav-buttons">
+                    <a href="login.html" class="login">Connexion</a>
+                    <a href="register.html" class="register">Inscription</a>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <!-- 📦 EQUAL 50/50 SCREEN HERO SECTION -->
+    <main class="hero-container">
+        <div class="hero-left">
+            <h1>Multipliez Vos Opportunités</h1>
+            <p>Bienvenue chez Sterling Growth. Rejoignez notre plateforme dès aujourd'hui, accomplissez des tâches quotidiennes simples et commencez à faire progresser vos gains financiers en toute sécurité.</p>
+            <a href="register.html" class="btn-cta">S'inscrire et obtenir 1 000 FCFA</a>
+        </div>
+        
+        <div class="hero-right">
+            <img src="logo.png" alt="Sterling Growth Logo Graphic">
+        </div>
+    </main>
+
+</body>
+</html>

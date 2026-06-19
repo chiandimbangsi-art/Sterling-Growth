@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact - Sterling Growth</title>
+    <link rel="stylesheet" href="https://cloudflare.com">
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #1a1a2e;
+            color: #ffffff;
+            margin: 0;
+            padding: 0;
+        }
+
+        /* 🗺️ NAVBAR TOP-RIGHT LAYOUT */
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 50px;
+            background-color: #162447;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+        }
+        .logo img {
+            height: 50px;
+            width: auto;
+            object-fit: contain;
+        }
+        .right-menu-container {
+            display: flex;
+            align-items: center;
+            gap: 35px;
+        }
+        .nav-links {
+            list-style: none;
+            display: flex;
+            flex-direction: row;
+            margin: 0;
+            padding: 0;
+            gap: 25px;
+        }
+        .nav-links a {
+            text-decoration: none;
+            white-space: nowrap;
+        }
+        /* 🎨 DISTINCT NAVBAR LINK COLORS */
+        .nav-links li:nth-child(1) a { color: #4ecca3; font-weight: bold; } /* Accueil - Mint Green */
+        .nav-links li:nth-child(2) a { color: #ffb423; font-weight: bold; } /* Niveau - Gold/Yellow */
+        .nav-links li:nth-child(3) a { color: #a29bfe; font-weight: bold; } /* À propos - Soft Purple */
+        .nav-links li:nth-child(4) a { color: #00adb5; font-weight: bold; text-decoration: underline; } /* Contact - Vibrant Cyan (Active) */
+
+        .nav-links a:hover {
+            filter: brightness(1.3);
+        }
+
+        /* AUTH BUTTONS */
+        .nav-buttons {
+            display: flex;
+            flex-direction: row;
+            gap: 15px;
+        }
+        .login {
+            color: #ffffff;
+            border: 2px solid #e43f5a;
+            padding: 8px 18px;
+            border-radius: 5px;
+            text-decoration: none;
+            font-weight: bold;
+        }
+        .register {
+            background-color: #e43f5a;
+            color: #ffffff;
+            padding: 10px 20px;
+            border-radius: 5px;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        /* 📦 MAIN CONTAINER STRUCTURE (50/50 SHARE LAYOUT) */
+        .main-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 50px 20px;
+        }
+        .page-title {
+            text-align: center;
+            color: #00adb5; /* Matching the Contact cyan theme */
+            font-size: 2.5rem;
+            margin-bottom: 40px;
+        }
+        .contact-split {
+            display: flex;
+            gap: 40px;
+            align-items: flex-start;
+        }
+        .form-side, .social-side {
+            flex: 1;
+            width: 50%;
+            background-color: #162447;
+            border-radius: 12px;
+            padding: 30px;
+            box-shadow: 0 6px 15px rgba(0,0,0,0.3);
+            box-sizing: border-box;
+        }
+        .form-side {
+            border-top: 5px solid #00adb5;
+        }
+        .social-side {
+            border-top: 5px solid #ffb423;
+        }
+
+        h2 {
+            margin-top: 0;
+            margin-bottom: 20px;
+            font-size: 1.6rem;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        .form-side h2 { color: #00adb5; }
+        .social-side h2 { color: #ffb423; }
+
+        /* FORM FIELD STYLES */
+        .input-group {
+            margin-bottom: 20px;
+        }
+        .input-group label {
+            display: block;
+            margin-bottom: 8px;
+            color: #bbb;
+        }
+        .input-group input, .input-group textarea {
+            width: 100%;
+            padding: 12px;
+            border: none;
+            border-radius: 6px;
+            background-color: #1a1a2e;
+            color: #ffffff;
+            font-size: 1rem;
+            box-sizing: border-box;
+        }
+        .input-group textarea {
+            resize: vertical;
+            height: 120px;
+        }
+        .btn-submit {
+            background-color: #00adb5;
+            color: #1a1a2e;
+            border: none;
+            padding: 12px 25px;
+            font-size: 1rem;
+            font-weight: bold;
+            border-radius: 6px;
+            cursor: pointer;
+            width: 100%;
+        }
+
+        /* 📱 SOCIAL MEDIA BRAND CARDS */
+        .social-intro {
+            color: #ddd;
+            line-height: 1.6;
+            margin-bottom: 25px;
+        }
+        .social-link-card {
+            display: flex;
+            align-items: center;
+            padding: 15px 20px;
+            border-radius: 8px;
+            text-decoration: none;
+            color: #ffffff;
+            margin-bottom: 15px;
+            font-weight: bold;
+            font-size: 1.1rem;
+            transition: transform 0.2s;
+        }
+        .social-link-card:hover {
+            transform: translateX(8px);
+            filter: brightness(1.1);
+        }
+        .social-link-card i {
+            font-size: 1.8rem;
+            margin-right: 15px;
+            width: 30px;
+            text-align: center;
+        }
+        
+        /* Official Platform Colors */
+        .whatsapp-card { background-color: #25D366; color: #ffffff; }
+        .telegram-card { background-color: #26A5E4; color: #ffffff; }
+        .facebook-card { background-color: #1877F2; color: #ffffff; }
+
+        /* RESPONSIVE */
+        @media (max-width: 768px) {
+            .navbar { flex-direction: column; gap: 15px; padding: 15px; }
+            .right-menu-container { flex-direction: column; gap: 15px; }
+            .contact-split { flex-direction: column; }
+            .form-side, .social-side { width: 100%; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- 🗺️ RECONFIGURED TOP NAVBAR -->
+    <header>
+        <nav class="navbar">
+            <div class="logo">
+                <img src="logo.png" alt="Sterling Growth">
+            </div>
+            
+            <div class="right-menu-container">
+                <ul class="nav-links">
+                    <li><a href="accueil.html">Accueil</a></li>
+                    <li><a href="level.html">Niveau</a></li>
+                    <li><a href="about.html">À propos</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+                <div class="nav-buttons">
+                    <a href="login.html" class="login">Connexion</a>
+                    <a href="register.html" class="register">Inscription</a>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <!-- 📦 MAIN DISPLAY CONTAINER -->
+    <main class="main-container">
+        <h1 class="page-title">Contactez Notre Support</h1>
+
+        <div class="contact-split">
+            <!-- Left 50% Share: Email Contact Form -->
+            <div class="form-side">
+                <h2><i class="fas fa-envelope"></i> Envoyez un Message</h2>
+                <form action="#" method="POST" onsubmit="alert('Merci ! Votre message a été transmis à l\'équipe Sterling Growth.'); return false;">
+                    <div class="input-group">
+                        <label for="name">Nom Complet</label>
+                        <input type="text" id="name" name="name" placeholder="Ex: Jean Dupont" required>
+                    </div>
+                    <div class="input-group">
+                        <label for="email">Adresse E-mail</label>
+                        <input type="email" id="email" name="email" placeholder="Ex: jean@gmail.com" required>
+                    </div>
+                    <div class="input-group">
+                        <label for="message">Votre Message</label>
+                        <textarea id="message" name="message" placeholder="Comment pouvons-nous vous aider ?" required></textarea>
+                    </div>
+                    <button type="submit" class="btn-submit">Envoyer le message</button>
+                </form>
+            </div>
+
+            <!-- Right 50% Share: Social Media Quick Channels -->
+            <div class="social-side">
+                <h2><i class="fas fa-share-nodes"></i> Nos Réseaux Sociaux</h2>
+                <p class="social-intro">Pour obtenir une assistance instantanée concernant vos dépôts, vos tâches quotidiennes ou vos retraits, rejoignez nos canaux officiels directement :</p>
+                
+                <!-- WhatsApp Channel Link -->
+                <a href="https://wa.me" target="_blank" class="social-link-card whatsapp-card">
+                    <i class="fab fa-whatsapp"></i> Rejoignez-nous sur WhatsApp
+                </a>
+
+                <!-- Telegram Group Link -->
+                <a href="https://t.me" target="_blank" class="social-link-card telegram-card">
+                    <i class="fab fa-telegram"></i> Rejoignez notre Canal Telegram
+                </a>
+
+                <!-- Facebook Page Link -->
+                <a href="https://facebook.com" target="_blank" class="social-link-card facebook-card">
+                    <i class="fab fa-facebook-f"></i> Suivez-nous sur Facebook
+                </a>
+            </div>
+        </div>
+    </main>
+
+</body>
+</html>

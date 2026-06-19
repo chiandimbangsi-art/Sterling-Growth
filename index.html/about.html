@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>À Propos - Sterling Growth</title>
+    <link rel="stylesheet" href="https://cloudflare.com">
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #1a1a2e;
+            color: #ffffff;
+            margin: 0;
+            padding: 0;
+        }
+
+        /* 🗺️ NAVBAR TOP-RIGHT LAYOUT */
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 50px;
+            background-color: #162447;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+        }
+        .logo img {
+            height: 50px;
+            width: auto;
+            object-fit: contain;
+        }
+        .right-menu-container {
+            display: flex;
+            align-items: center;
+            gap: 35px;
+        }
+        .nav-links {
+            list-style: none;
+            display: flex;
+            flex-direction: row;
+            margin: 0;
+            padding: 0;
+            gap: 25px;
+        }
+        .nav-links a {
+            text-decoration: none;
+            white-space: nowrap;
+        }
+        /* 🎨 DISTINCT NAVBAR LINK COLORS */
+        .nav-links li:nth-child(1) a { color: #4ecca3; font-weight: bold; } /* Accueil - Mint Green */
+        .nav-links li:nth-child(2) a { color: #ffb423; font-weight: bold; } /* Niveau - Gold/Yellow */
+        .nav-links li:nth-child(3) a { color: #a29bfe; font-weight: bold; text-decoration: underline; } /* À propos - Soft Purple (Active) */
+        .nav-links li:nth-child(4) a { color: #00adb5; font-weight: bold; } /* Contact - Vibrant Cyan */
+
+        .nav-links a:hover {
+            filter: brightness(1.3);
+        }
+
+        /* AUTH BUTTONS */
+        .nav-buttons {
+            display: flex;
+            flex-direction: row;
+            gap: 15px;
+        }
+        .login {
+            color: #ffffff;
+            border: 2px solid #e43f5a;
+            padding: 8px 18px;
+            border-radius: 5px;
+            text-decoration: none;
+            font-weight: bold;
+        }
+        .register {
+            background-color: #e43f5a;
+            color: #ffffff;
+            padding: 10px 20px;
+            border-radius: 5px;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        /* 📦 MAIN CONTENT STRUCTURE (EQUAL SHARE DESIGN) */
+        .main-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 50px 20px;
+        }
+        .page-title {
+            text-align: center;
+            color: #a29bfe; /* Matching the À propos purple theme */
+            font-size: 2.5rem;
+            margin-bottom: 40px;
+        }
+        .content-split {
+            display: flex;
+            gap: 40px;
+            align-items: flex-start;
+        }
+        .text-side {
+            flex: 1;
+            width: 50%;
+        }
+        .image-side {
+            flex: 1;
+            width: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding-top: 40px;
+        }
+        .image-side img {
+            max-width: 280px;
+            width: 100%;
+            height: auto;
+            animation: floatImage 4s ease-in-out infinite;
+        }
+
+        /* CARD BLOCKS */
+        .about-card {
+            background-color: #162447;
+            border-radius: 12px;
+            padding: 25px;
+            margin-bottom: 25px;
+            box-shadow: 0 6px 15px rgba(0,0,0,0.3);
+            border-left: 5px solid #a29bfe;
+        }
+        .about-card h3 {
+            margin: 0 0 12px 0;
+            color: #a29bfe;
+            font-size: 1.4rem;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        .about-card p {
+            margin: 0;
+            color: #ddd;
+            line-height: 1.6;
+            font-size: 1.05rem;
+        }
+
+        @keyframes floatImage {
+            0% { transform: translateY(0px); }
+            50% { transform: translateY(-12px); }
+            100% { transform: translateY(0px); }
+        }
+
+        /* RESPONSIVE FLUIDITY */
+        @media (max-width: 768px) {
+            .navbar { flex-direction: column; gap: 15px; padding: 15px; }
+            .right-menu-container { flex-direction: column; gap: 15px; }
+            .content-split { flex-direction: column; }
+            .text-side, .image-side { width: 100%; }
+            .image-side { order: -1; } /* Puts logo on top on mobile viewports */
+        }
+    </style>
+</head>
+<body>
+
+    <!-- 🗺️ SYNCHRONIZED NAVIGATION BLOCK -->
+    <header>
+        <nav class="navbar">
+            <div class="logo">
+                <img src="logo.png" alt="Sterling Growth">
+            </div>
+            
+            <div class="right-menu-container">
+                <ul class="nav-links">
+                    <li><a href="accueil.html">Accueil</a></li>
+                    <li><a href="level.html">Niveau</a></li>
+                    <li><a href="about.html">À propos</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+                <div class="nav-buttons">
+                    <a href="login.html" class="login">Connexion</a>
+                    <a href="register.html" class="register">Inscription</a>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <!-- 📦 PRESENTATION VIEW BLOCK -->
+    <main class="main-container">
+        <h1 class="page-title">À Propos de Sterling Growth</h1>
+
+        <div class="content-split">
+            <!-- Left 50% Share: Company Profile Details -->
+            <div class="text-side">
+                <div class="about-card">
+                    <h3><i class="fas fa-bullseye"></i> Notre Mission</h3>
+                    <p>Sterling Growth est une plateforme innovante conçue pour offrir des opportunités financières quotidiennes accessibles à tous. Notre but est de permettre à nos membres de valoriser leur temps en accomplissant des micro-tâches numériques rentables.</p>
+                </div>
+
+                <div class="about-card">
+                    <h3><i class="fas fa-cogs"></i> Comment ça fonctionne ?</h3>
+                    <p>C'est simple et transparent : vous créez votre compte pour obtenir votre bonus de bienvenue, vous effectuez vos tâches quotidiennes sponsorisées, vous accumulez des gains réels en FCFA, puis vous demandez un retrait direct vers votre portefeuille Mobile Money préféré.</p>
+                </div>
+
+                <div class="about-card">
+                    <h3><i class="fas fa-shield-halved"></i> Sécurité & Engagement</h3>
+                    <p>Nous plaçons la sécurité de nos membres au centre de nos priorités. Grâce à notre infrastructure backend moderne et nos protocoles de paiement stricts, nous vous garantissons un environnement d'investissement fiable, stable et durable au quotidien.</p>
+                </div>
+            </div>
+
+            <!-- Right 50% Share: Floating Corporate Branding Logo -->
+            <div class="image-side">
+                <img src="logo.png" alt="Sterling Growth Branding Artwork">
+            </div>
+        </div>
+    </main>
+
+</body>
+</html>
