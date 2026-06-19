@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width,initial-scale=1.0">
+	<title>Connexion - Sterling Growth</title>
+	<link rel="stylesheet" href="login.css">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+</head>
+<body>
+	<div class="login-container">
+		<div class="login-card">
+			<img class="logo" src="logo.png" alt="Sterling Growth logo">
+			<h1>Se connecter</h1>
+			<p class="subtitle">Entrez vos identifiants pour continuer</p>
+				<form id="loginForm" method="post" data-endpoint="login.php" novalidate>
+					<div id="loginMessage" role="status" aria-live="polite"></div>
+				<div class="input-box">
+					<i class="fas fa-user"></i>
+						<input type="text" name="identifier" id="identifier" placeholder="Nom d'utilisateur ou email" required>
+				</div>
+				<div class="input-box">
+					<i class="fas fa-lock"></i>
+						<input type="password" name="password" id="password" placeholder="Mot de passe" required>
+				</div>
+					<div class="options">
+						<label><input type="checkbox" name="remember" id="remember"> Se souvenir</label>
+						<a href="#">Mot de passe oublié ?</a>
+					</div>
+				<button type="submit">Connexion</button>
+				<div class="register-link">Pas encore inscrit ? <a href="register.html">Inscription</a></div>
+			</form>
+
+				<script>
+				(function(){
+					const form = document.getElementById('loginForm');
+					const msg = document.getElementById('loginMessage');
+
+					function showMessage(text, isError){
+						msg.textContent = text;
+						msg.style.color = isError ? 'salmon' : 'lightgreen';
+					}
+
+					form.addEventListener('submit', async function(e){
+						e.preventDefault();
+						msg.textContent = '';
+
+						if (!form.checkValidity()){
+							showMessage('Veuillez remplir les champs requis.', true);
+							return;
+						}
+
+						const endpoint = form.dataset.endpoint || 'login.php';
+						const formData = new FormData(form);
+
+						try {
+							const res = await fetch(endpoint, {
+								method: 'POST',
+								credentials: 'include',
+								body: formData
+							});
+
+							const data = await res.json().catch(()=> ({}));
+							if (res.ok && data.success) {
+								showMessage(data.message || 'Connexion réussie.', false);
+								// redirect immediately to dashboard on success
+								if (data.redirect) {
+									window.location.href = data.redirect;
+								} else {
+									window.location.href = 'dashboard.php';
+								}
+							} else {
+								showMessage(data.message || 'Erreur lors de la connexion.', true);
+							}
+						} catch (err) {
+							showMessage('Erreur réseau. Veuillez réessayer.', true);
+						}
+					});
+				})();
+				</script>
+		</div>
+	</div>
+</body>
+</html>
+
